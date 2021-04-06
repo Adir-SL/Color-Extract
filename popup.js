@@ -1,7 +1,7 @@
   var tab_title = '';
   function displayCode (results){
     document.querySelector("#workingData").innerHTML = "<div class='flexDiv'><h1>Colors</h1><button id='allBtn'>Copy all</button></div>"+results;
-    document.getElementById("allBtn").addEventListener("click", copySVG);
+    // document.getElementById("allBtn").addEventListener("click", copySVG);
     
     var x = document.getElementsByTagName("button");
     var i;
@@ -22,7 +22,11 @@
     var i;
     for (i = 0; i < x.length; i++) {
       if(window.getComputedStyle(x[i]).opacity == "0.8" || window.getComputedStyle(x[i]).opacity == 0.8){
-        copyText(x[i].getAttribute("title"))
+        if(x[i].id == "allBtn"){
+          copySVG();
+        }else{
+          copyText(x[i].getAttribute("title"))
+        }
         x[i].setAttribute("clip", "Copied!");
         setTimeout(function(){ resetClips(); }, 500);
       }
