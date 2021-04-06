@@ -1,6 +1,6 @@
   var tab_title = '';
   function displayCode (results){
-    document.querySelector("#workingData").innerHTML = "<div class='flexDiv'><h1>Colors</h1><div id='allBtn'>Copy all</div></div>"+results;
+    document.querySelector("#workingData").innerHTML = "<div class='flexDiv'><h1>Colors</h1><button id='allBtn'>Copy all</button></div>"+results;
     document.getElementById("allBtn").addEventListener("click", copySVG);
     
     var x = document.getElementsByTagName("button");
