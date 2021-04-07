@@ -122,6 +122,10 @@
       a = "0" + a;
 
       y.setAttribute("title","#" + r + g + b + a);
+      alphaCheck = rgba[3].replace(/ /g, "");
+      // alphaCheck = 1 - alphaCheck;
+      alphaCheck = alphaCheck*100;
+      y.setAttribute("title","#" + r + g + b + "("+alphaCheck+"%)");
       y.style.backgroundImage = "linear-gradient(#33333312 2px, transparent 2px), linear-gradient(to right, #33333312 2px, #ffffff12 2px)";
       y.style.backgroundPosition = "4px 4px";
       y.style.backgroundSize = "10px 10px";
