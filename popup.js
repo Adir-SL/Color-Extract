@@ -122,7 +122,7 @@
       a = "0" + a;
 
       y.setAttribute("title","#" + r + g + b + a);
-      y.style.backgroundImage = "linear-gradient(#444cf7 2px, transparent 2px), linear-gradient(to right, #444cf7 2px, #e5e5f7 2px)";
+      y.style.backgroundImage = "linear-gradient(#33333312 2px, transparent 2px), linear-gradient(to right, #33333312 2px, #ffffff12 2px)";
       y.style.backgroundPosition = "4px 4px";
       y.style.backgroundSize = "10px 10px";
     }
