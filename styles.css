@@ -20,7 +20,7 @@
     opacity: 0.8;
 }
 #workingData button::after{
-    content: attr(title);
+    content: attr(colorData);
     position: absolute;
     background-color: black;
     color: white;

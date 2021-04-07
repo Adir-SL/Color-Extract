@@ -1,4 +1,4 @@
-  var tab_title = '';
+  var tab_colorData = '';
   function displayCode (results){
     document.querySelector("#workingData").innerHTML = "<div class='flexDiv'><h1>Colors</h1><button id='allBtn'>Copy all</button></div>"+results;
     // document.getElementById("allBtn").addEventListener("click", copySVG);
@@ -7,7 +7,7 @@
     var i;
     for (i = 0; i < x.length; i++) {
       x[i].style.backgroundColor = x[i].innerText;
-      x[i].setAttribute("title", x[i].innerText);
+      x[i].setAttribute("colorData", x[i].innerText);
       x[i].addEventListener("click", colorClick);
       
       if(x[i].innerText.slice(0,4) == "rgba"){
@@ -25,7 +25,7 @@
         if(x[i].id == "allBtn"){
           copySVG();
         }else{
-          copyText(x[i].getAttribute("title"))
+          copyText(x[i].getAttribute("colorData"))
         }
         x[i].setAttribute("clip", "Copied!");
         setTimeout(function(){ resetClips(); }, 500);
@@ -57,7 +57,7 @@
     var x = document.getElementById("workingData").getElementsByTagName("button")
     var i;
     for (i = 1; i < x.length; i++) {
-      window.tempSVG += '<rect width="60" height="60" rx="40" x="'+window.placeMeX+'" y="'+window.placeMeY+'" stroke="#333333" fill="'+x[i].getAttribute("title")+'"/>';
+      window.tempSVG += '<rect width="60" height="60" rx="40" x="'+window.placeMeX+'" y="'+window.placeMeY+'" stroke="#333333" fill="'+x[i].getAttribute("colorData")+'"/>';
       window.placeMeX += 80;
       window.countMe += 1;
       if(window.countMe == 6){
@@ -86,7 +86,7 @@
     if (b.length == 1)
       b = "0" + b;
   
-      y.setAttribute("title", "#" + r + g + b);
+      y.setAttribute("colorData", "#" + r + g + b);
   }
   function RGBAToHexA(rgba, y) {
     let sep = rgba.indexOf(",") > -1 ? "," : " "; 
@@ -121,10 +121,10 @@
     if (a.length == 1)
       a = "0" + a;
 
-      y.setAttribute("title","#" + r + g + b + a);
+      y.setAttribute("colorData","#" + r + g + b + a);
       alphaCheck = rgba[3].replace(/ /g, "");
       alphaCheck = alphaCheck*100;
-      // y.setAttribute("title","#" + r + g + b + "("+alphaCheck+"%)");
+      // y.setAttribute("colorData","#" + r + g + b + "("+alphaCheck+"%)");
       y.style.backgroundImage = "linear-gradient(#33333312 2px, transparent 2px), linear-gradient(to right, #33333312 2px, #ffffff12 2px)";
       y.style.backgroundPosition = "4px 4px";
       y.style.backgroundSize = "10px 10px";
@@ -139,7 +139,7 @@
   }
   chrome.tabs.query({active: true}, function(tabs) {
     var tab = tabs[0];
-    tab_title = tab.title;
+    tab_colorData = tab.colorData;
     chrome.tabs.executeScript(tab.id, {
     
     code: 'window.temp="";var x = document.querySelectorAll("*");var i;for (i = 0; i < x.length; i++) {if(window.temp.indexOf(window.getComputedStyle(x[i]).color) < 0){window.temp +="<button id="+window.getComputedStyle(x[i]).color+" class="+1+">"+window.getComputedStyle(x[i]).color+"</button>";}};document.body.setAttribute("colorStyles", window.temp);var x = document.querySelectorAll("*");var i;for (i = 0; i < x.length; i++) {if(window.temp.indexOf(window.getComputedStyle(x[i]).backgroundColor) < 0){window.temp +="<button id="+window.getComputedStyle(x[i]).color+" class="+1+">"+window.getComputedStyle(x[i]).backgroundColor+"</button>";}};document.body.setAttribute("colorStyles", window.temp);document.body.getAttribute("colorStyles")'
