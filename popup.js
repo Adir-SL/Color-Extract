@@ -49,10 +49,10 @@
     document.body.removeChild(copyFrom);
   }
   function copySVG(){
-    window.placeMeX = 0;
-    window.placeMeY = 0;
+    window.placeMeX = 4;
+    window.placeMeY = 4;
     window.countMe = 0;
-    window.tempSVG = '<svg width="'+document.getElementById("workingData").offsetWidth+'" height="'+document.getElementById("workingData").offsetHeight+'" viewBox="0 0 '+document.getElementById("workingData").offsetWidth+' '+document.getElementById("workingData").offsetHeight+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
+    window.tempSVG = '<svg width="'+document.getElementById("workingData").offsetWidth+'" height="'+document.getElementById("workingData").offsetHeight+'" viewBox="0 0 '+(document.getElementById("workingData").offsetWidth+8)+' '+(document.getElementById("workingData").offsetHeight+8)+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
     var x = document.getElementById("workingData").getElementsByTagName("button")
     var i;
     for (i = 0; i < x.length; i++) {
