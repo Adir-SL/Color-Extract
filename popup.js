@@ -61,7 +61,7 @@
       window.countMe += 1;
       if(window.countMe == 7){
         window.placeMeY += 80;
-        window.placeMeX = 0;
+        window.placeMeX = 4;
         window.countMe = 0;
       }
     }
