@@ -86,7 +86,7 @@
     if (b.length == 1)
       b = "0" + b;
   
-      y.setAttribute("title", r + g + b);
+      y.setAttribute("title", "#" + r + g + b);
   }
   function RGBAToHexA(rgba, y) {
     let sep = rgba.indexOf(",") > -1 ? "," : " "; 
@@ -124,7 +124,7 @@
       // y.setAttribute("title","#" + r + g + b + a);
       alphaCheck = rgba[3].replace(/ /g, "");
       alphaCheck = alphaCheck*100;
-      y.setAttribute("title", r + g + b + "("+alphaCheck+"%)");
+      y.setAttribute("title","#" + r + g + b + "("+alphaCheck+"%)");
       y.style.backgroundImage = "linear-gradient(#33333312 2px, transparent 2px), linear-gradient(to right, #33333312 2px, #ffffff12 2px)";
       y.style.backgroundPosition = "4px 4px";
       y.style.backgroundSize = "10px 10px";
