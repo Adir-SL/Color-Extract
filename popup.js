@@ -87,7 +87,7 @@
       b = "0" + b;
   
       y.setAttribute("colorData", "#" + r + g + b);
-      y.setAttribute("title", "#" + r + g + b);
+      y.setAttribute("title", "rgb(" + rgb + ")");
   }
   function RGBAToHexA(rgba, y) {
     let sep = rgba.indexOf(",") > -1 ? "," : " "; 
@@ -123,9 +123,11 @@
       a = "0" + a;
 
       y.setAttribute("colorData","#" + r + g + b + a);
-      alphaCheck = rgba[3].replace(/ /g, "");
+      // alphaCheck = rgba[3].replace(/ /g, "");
+      alphaCheck = rgba[3];
       alphaCheck = alphaCheck*100;
-      y.setAttribute("title","#" + r + g + b + "("+alphaCheck+"%)");
+      // y.setAttribute("title","#" + r + g + b + "("+alphaCheck+"%)");
+      y.setAttribute("title", "rgba(" + rgba[0] + ","+ rgba[1] +"," + rgba[2] + ", " + alphaCheck+"%)");
       y.style.backgroundImage = "linear-gradient(#33333312 2px, transparent 2px), linear-gradient(to right, #33333312 2px, #ffffff12 2px)";
       y.style.backgroundPosition = "4px 4px";
       y.style.backgroundSize = "10px 10px";
