@@ -87,6 +87,7 @@
       b = "0" + b;
   
       y.setAttribute("colorData", "#" + r + g + b);
+      y.setAttribute("title", "#" + r + g + b);
   }
   function RGBAToHexA(rgba, y) {
     let sep = rgba.indexOf(",") > -1 ? "," : " "; 
