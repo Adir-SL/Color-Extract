@@ -52,15 +52,15 @@
     window.placeMeX = 10;
     window.placeMeY = 10;
     window.countMe = 0;
-    rowNum = Math.ceil((document.getElementById("workingData").getElementsByTagName("button").length-1) / 7);
-    window.tempSVG = '<svg width="'+(document.getElementById("workingData").offsetWidth+20)+'" height="'+(rowNum*80)+'" viewBox="0 0 '+(document.getElementById("workingData").offsetWidth+20)+' '+(rowNum*80)+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
+    rowNum = Math.ceil((document.getElementById("workingData").getElementsByTagName("button").length-1) / 6);
+    window.tempSVG = '<svg width="'+480+'" height="'+(rowNum*80)+'" viewBox="0 0 '+480+' '+(rowNum*80)+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
     var x = document.getElementById("workingData").getElementsByTagName("button")
     var i;
     for (i = 1; i < x.length; i++) {
       window.tempSVG += '<rect width="60" height="60" rx="40" x="'+window.placeMeX+'" y="'+window.placeMeY+'" stroke="#333333" fill="'+x[i].getAttribute("title")+'"/>';
       window.placeMeX += 80;
       window.countMe += 1;
-      if(window.countMe == 7){
+      if(window.countMe == 6){
         window.placeMeY += 80;
         window.placeMeX = 10;
         window.countMe = 0;
@@ -121,10 +121,10 @@
     if (a.length == 1)
       a = "0" + a;
 
-      // y.setAttribute("title","#" + r + g + b + a);
+      y.setAttribute("title","#" + r + g + b + a);
       alphaCheck = rgba[3].replace(/ /g, "");
       alphaCheck = alphaCheck*100;
-      y.setAttribute("title","#" + r + g + b + "("+alphaCheck+"%)");
+      // y.setAttribute("title","#" + r + g + b + "("+alphaCheck+"%)");
       y.style.backgroundImage = "linear-gradient(#33333312 2px, transparent 2px), linear-gradient(to right, #33333312 2px, #ffffff12 2px)";
       y.style.backgroundPosition = "4px 4px";
       y.style.backgroundSize = "10px 10px";
