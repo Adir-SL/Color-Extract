@@ -49,10 +49,11 @@
     document.body.removeChild(copyFrom);
   }
   function copySVG(){
-    window.placeMeX = 4;
-    window.placeMeY = 4;
+    window.placeMeX = 10;
+    window.placeMeY = 10;
     window.countMe = 0;
-    window.tempSVG = '<svg width="'+document.getElementById("workingData").offsetWidth+'" height="'+document.getElementById("workingData").offsetHeight+'" viewBox="0 0 '+(document.getElementById("workingData").offsetWidth+8)+' '+(document.getElementById("workingData").offsetHeight+8)+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
+    rowNum = Math.ceil(document.getElementById("workingData").getElementsByTagName("button").length / 7);
+    window.tempSVG = '<svg width="'+(document.getElementById("workingData").offsetWidth+20)+'" height="'+(rowNum*80)+'" viewBox="0 0 '+(document.getElementById("workingData").offsetWidth+20)+' '+(rowNum*80)+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
     var x = document.getElementById("workingData").getElementsByTagName("button")
     var i;
     for (i = 0; i < x.length; i++) {
@@ -61,7 +62,7 @@
       window.countMe += 1;
       if(window.countMe == 7){
         window.placeMeY += 80;
-        window.placeMeX = 4;
+        window.placeMeX = 10;
         window.countMe = 0;
       }
     }
