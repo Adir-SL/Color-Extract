@@ -52,11 +52,11 @@
     window.placeMeX = 10;
     window.placeMeY = 10;
     window.countMe = 0;
-    rowNum = Math.ceil(document.getElementById("workingData").getElementsByTagName("button").length / 7);
+    rowNum = Math.ceil((document.getElementById("workingData").getElementsByTagName("button").length-1) / 7);
     window.tempSVG = '<svg width="'+(document.getElementById("workingData").offsetWidth+20)+'" height="'+(rowNum*80)+'" viewBox="0 0 '+(document.getElementById("workingData").offsetWidth+20)+' '+(rowNum*80)+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
     var x = document.getElementById("workingData").getElementsByTagName("button")
     var i;
-    for (i = 0; i < x.length; i++) {
+    for (i = 1; i < x.length; i++) {
       window.tempSVG += '<rect width="60" height="60" rx="40" x="'+window.placeMeX+'" y="'+window.placeMeY+'" stroke="#333333" fill="'+x[i].getAttribute("title")+'"/>';
       window.placeMeX += 80;
       window.countMe += 1;
